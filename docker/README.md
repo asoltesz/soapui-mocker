@@ -78,4 +78,4 @@ Fine tuning in the application.properties file:
 
 ### Sources
 
-The application and the Docker container image definition can be found here: 
+The application and the Docker container image definition can be found here: https://github.com/asoltesz/soapui-mocker
