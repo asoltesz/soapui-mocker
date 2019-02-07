@@ -14,13 +14,11 @@ Accept multiple folders as sources for SoapUI project definitions (.xml)
 Reloading capability
 - Watches the file system for project file changes on the disk. If any of them changes, it automatically stops, reloads, restarts the affected SoapUI projects (after a quiet period so that the SoapUI GUI can finish saving the workspace)
 - This makes it possible to use the SoapUI editor in parallel even if Mocker runs on a remote host and sees the project files only via shared folders
-
-## Features (planned):
  
 Docker container 
 - Container definition files based on the OpenJDK 8 image
 - Uploaded to Docker Hub
-- documentation for easy usage
+- Documentation for easy usage of the container image
 
 # Building
 

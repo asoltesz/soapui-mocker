@@ -75,3 +75,7 @@ Fine tuning in the application.properties file:
     # Must always be smaller than pollInterval
     # Optional, defaults to 1 second.
     # mocker.quietPeriod=1000
+
+### Sources
+
+The application and the Docker container image definition can be found here: 
