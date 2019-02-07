@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+
+  #
+  # Headless SoapUI mock services
+  #
+  backend-soapui-mocks:
+    image: asoltesz/soapui-mocker:0.9
+    volumes:
+    - "./application.properties:/soapui-mocker/application.properties"
+    - "/home/sola/Fejlesztes/TakarekInfo/Fraud2/sources/backend-mock:/soapui-mocker/project-sets/set-1"
+    ports:
+    - "8080:8080"
+
+    # entrypoint: ls /soapui-mocker
