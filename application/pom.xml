@@ -15,7 +15,7 @@
 
 	<groupId>org.soapui-mocker</groupId>
 	<artifactId>runner-app</artifactId>
-	<version>0.9</version>
+	<version>0.9.1</version>
 
 	<name>Runner</name>
 	<description>Reads multiple SoapUI mock projects and starts them</description>
