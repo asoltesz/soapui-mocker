@@ -80,7 +80,7 @@ public class RunnerApplication {
 			log.info("All started services: " + startedServicesCnt);
 			log.info("--------------------------------------------------");
 
-			if (startedRestServicesCnt == 0)
+			if (startedServicesCnt == 0)
 			{
 				log.warn("No mock services in the SoapUI projects were loaded. Execution will end.");
 			}
@@ -109,23 +109,51 @@ public class RunnerApplication {
 		log.debug("Loading project set: " + projectSet.getName());
 		log.debug("Root folder: " + projectSet.getRootFolder());
 
-		List<String> excludedProjects = projectSet.getExcludedProjectFiles();
+		List<String> excludedProjects = projectSet.getExcludedProjectNames();
 		log.debug("Excluded projects: " + projectSet.getName());
 
 		String[] extensions = projectSet.getProjectFileExtensions();
 		log.debug("Extensions: " + extensions);
 
 		File rootDir = new File(projectSet.getRootFolder());
+		String postFix = projectSet.getProjectFileNamePostfix();
 
 		Collection<File> files = FileUtils.listFiles(
-				rootDir, extensions, true);
+				rootDir, extensions, projectSet.isRecursive() );
 
 		log.debug("Found " + files.size() + " in root folder.");
 
-		files = files.stream().filter(file ->
-					!excludedProjects.contains(file.getName())
-				)
-				.collect(Collectors.toList());
+		files = files.stream()
+			.filter(file ->
+			{
+				String name = file.getName();
+
+				// File name is in the excluded project file name list
+				if (excludedProjects.contains(name))
+				{
+					return false;
+				}
+
+				String nameWithoutExt = name;
+				int extPos = name.indexOf(".");
+				if (extPos != 0)
+				{
+					nameWithoutExt = name.substring(0, extPos);
+				}
+
+				// No postfix defined or filename ends with the postfix
+				if (postFix == null && postFix.equals("")
+					|| nameWithoutExt.endsWith(postFix))
+				{
+					return true;
+				}
+				// Postfix defined and filename conflicts with it
+				else
+				{
+					return false;
+				}
+			})
+			.collect(Collectors.toList());
 
 		log.debug("Iterating project files.");
 

@@ -24,6 +24,17 @@ public class ProjectSet {
 	String rootFolder;
 
 	/**
+	 * Whether project files should be looked up recursively in the root folders
+	 */
+	boolean recursive = true;
+
+	/**
+	 * Postfix of the project file name before the extension.
+	 * Defaults to "soapui-project"
+	 */
+	String projectFileNamePostfix;
+
+	/**
 	 * The file extensions that are considered as SoapUI project files.
 	 *
 	 * Optional, defaults to ["xml"]
@@ -34,7 +45,7 @@ public class ProjectSet {
 	 * The list of project files (case sensitive) that are considered
 	 * as excluded and should not be loaded.
 	 */
-	List<String> excludedProjectFiles;
+	List<String> excludedProjectNames;
 
 	/**
 	 * The list of Mock service names (case sensitive) that are considered
@@ -47,9 +58,11 @@ public class ProjectSet {
 
 		name = "default";
 
+		projectFileNamePostfix = "soapui-project";
+
 		projectFileExtensions = new String[] {"xml"};
 
-		excludedProjectFiles = new ArrayList<>();
+		excludedProjectNames = new ArrayList<>();
 
 		excludedMockServiceNames = new ArrayList<>();
 
@@ -74,6 +87,14 @@ public class ProjectSet {
 		this.rootFolder = rootFolder;
 	}
 
+	public boolean isRecursive() {
+		return recursive;
+	}
+
+	public void setRecursive(boolean recursive) {
+		this.recursive = recursive;
+	}
+
 	public String[] getProjectFileExtensions() {
 		return projectFileExtensions;
 	}
@@ -82,12 +103,20 @@ public class ProjectSet {
 		this.projectFileExtensions = projectFileExtensions;
 	}
 
-	public List<String> getExcludedProjectFiles() {
-		return excludedProjectFiles;
+	public String getProjectFileNamePostfix() {
+		return projectFileNamePostfix;
 	}
 
-	public void setExcludedProjectFiles(List<String> excludedProjectFiles) {
-		this.excludedProjectFiles = excludedProjectFiles;
+	public void setProjectFileNamePostfix(String projectFileNamePostfix) {
+		this.projectFileNamePostfix = projectFileNamePostfix;
+	}
+
+	public List<String> getExcludedProjectNames() {
+		return excludedProjectNames;
+	}
+
+	public void setExcludedProjectNames(List<String> excludedProjectNames) {
+		this.excludedProjectNames = excludedProjectNames;
 	}
 
 	public List<String> getExcludedMockServiceNames() {
