@@ -46,6 +46,11 @@ Your SoapUI mock services contain port numbers on which the mock service needs t
     mocker.projectSets[0].name=My Awesome Backend Mocks
     mocker.projectSets[0].rootFolder=/soapui-mocker/project-sets/set-1
     
+    # Look for SoapUI project files in the root folder recursively so that
+    # subfolders are also scanned or not.
+    # defaults to "true"
+    # mocker.projectSets[0].recursive=
+    
     # The project file names that are excluded (case-sensitive)
     # mocker.projectSets[0].excludedProjectNames[0]=
     
@@ -53,6 +58,8 @@ Your SoapUI mock services contain port numbers on which the mock service needs t
     # mocker.projectSets[0].excludedMockServiceNames[0]=
 
 Each projectSet is a root folder that contains one or more SoapUI project files.
+
+[More details about the configuration.](https://github.com/asoltesz/soapui-mocker/blob/master/application/src/main/resources/application.properties)
     
 ### More detailed logs
 
@@ -78,4 +85,4 @@ Fine tuning in the application.properties file:
 
 ### Sources
 
-The application and the Docker container image definition can be found here: https://github.com/asoltesz/soapui-mocker
+The application and the Docker container image definition can be found [In the GitHub repo](https://github.com/asoltesz/soapui-mocker)
