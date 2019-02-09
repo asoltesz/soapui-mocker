@@ -4,7 +4,7 @@ Mocker is a configurable headless application that runs SoapUI mock services def
 
 Spring Boot based Java application that utilizes the official SoapUI JAR libraries to open and start mock services (REST + SOAP) defined in multiple SoapUI projects.
 
-## Features:
+## Features
 
 Accept multiple folders as sources for SoapUI project definitions (.xml)
 - By default, all of the projects are loaded in the folder and all REST/SOAP mock services are started
@@ -17,8 +17,14 @@ Reloading capability
  
 Docker container 
 - Container definition files based on the OpenJDK 8 image
-- Uploaded to Docker Hub
+- [Image available on Docker Hub](https://hub.docker.com/r/soltesza/soapui-mocker) 
 - Documentation for easy usage of the container image
+
+## Configuration
+
+See configurable entries and their documentation in [application.properties](application/src/main/resources/application.properties).
+
+Some more examples and docs on the [Docker Hub page](https://hub.docker.com/r/soltesza/soapui-mocker)
 
 # Building
 
