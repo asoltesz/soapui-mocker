@@ -65,7 +65,7 @@ Each projectSet is a root folder that contains one or more SoapUI project files.
 
 In the application.properties file:
 
-    logging.level.org.soapui_mocker: DEBUG
+    logging.level.org.soapui_mocker=DEBUG
 
 ### Reloading parameters
 
