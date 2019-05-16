@@ -61,11 +61,22 @@ Each projectSet is a root folder that contains one or more SoapUI project files.
 
 [More details about the configuration.](https://github.com/asoltesz/soapui-mocker/blob/master/application/src/main/resources/application.properties)
     
-### More detailed logs
+## Logging
+ 
+#### More detailed logs
 
 In the application.properties file:
 
     logging.level.org.soapui_mocker=DEBUG
+
+#### Custom logging configuration
+
+The application uses Logback as its logging backend.
+
+Logging configuration is customizable via providing a standard logback-spring.xml on the /application/logback-spring.xml path (according to Spring conventions).
+ 
+SoapUI's own Log4J logging is rerouted to SLF4J and then to Logback. This results in all of the logs properly captured by Logback.
+
 
 ### Reloading parameters
 

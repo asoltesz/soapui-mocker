@@ -26,6 +26,8 @@ See configurable entries and their documentation in [application.properties](app
 
 Some more examples and docs on the [Docker Hub page](https://hub.docker.com/r/soltesza/soapui-mocker)
 
+Logging configuration is customizable via providing a standard logback-spring.xml and the standard logging level configuration of Spring Boot. SoapUI's Log4J logging is rerouted to SLF4J and then to Logback.
+
 # Building
 
 The application itself can be built from source with Maven on Java 8. 
