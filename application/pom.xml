@@ -15,7 +15,7 @@
 
 	<groupId>org.soapui-mocker</groupId>
 	<artifactId>runner-app</artifactId>
-	<version>0.9.1</version>
+	<version>0.9.2</version>
 
 	<name>Runner</name>
 	<description>Reads multiple SoapUI mock projects and starts them</description>
@@ -43,6 +43,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-logging</artifactId>
+
+			<!--
+                Excluding the Log4J implementation so that we can
+                use Logback exclusively.
+            -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+			</exclusions>
+
 		</dependency>
 
 		<!-- Developer Tools for File Watching functionality -->
@@ -62,6 +74,34 @@
 			<artifactId>soapui</artifactId>
 			<version>5.4.0</version>
 			<scope>compile</scope>
+
+			<!--
+                Excluding the Log4J implementation so that we can
+                use Logback exclusively.
+            -->
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
+
+		</dependency>
+
+		<!--
+		    Adding Log4J back for SOAP-UI in form of an implementation
+		    provided by Slf4J. This way SoapUI log messages that are sent using
+		    the Log4J API directly will end up routed through Slf4j and
+		    land in log appenders defined via the Logback config
+		-->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.8.0-beta4</version>
 		</dependency>
 
 		<dependency>
