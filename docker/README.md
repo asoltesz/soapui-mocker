@@ -94,6 +94,13 @@ Fine tuning in the application.properties file:
     # Optional, defaults to 1 second.
     # mocker.quietPeriod=1000
 
+
+### Actuator and Default web port
+
+The Spring Boot frame application exposes a set of Spring Boot Actuator endpoints on port 19999. This is useful for configuring log levels dynamically (see the /actuator/loggers endpoint). 
+
+Further Actuator endpoints may be exposed by configuration when needed, see the official Spring documentation about Actuator. 
+
 ### Sources
 
 The application and the Docker container image definition can be found [In the GitHub repo](https://github.com/asoltesz/soapui-mocker)
