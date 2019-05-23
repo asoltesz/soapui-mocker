@@ -9,7 +9,7 @@
 
 	<groupId>org.soapui-mocker</groupId>
 	<artifactId>docker-container</artifactId>
-	<version>0.9.2</version>
+	<version>0.9.3</version>
 	<packaging>pom</packaging>
 
 	<name>Docker Container</name>
